@@ -1,0 +1,25 @@
+{/* Portfolio */}
+        {portfolio && !loading && (
+          <div className="bg-white/10 p-6 rounded-xl text-white">
+            <h2 className="text-xl mb-2 flex items-center gap-2">
+              <Wallet /> Portfolio
+            </h2>
+            <p className="text-purple-300 mb-4">{portfolio.address}</p>
+            {portfolio.tokens.length > 0 ? (
+              portfolio.tokens.map((t, i) => (
+                <div key={i} className="flex justify-between py-2 border-b border-white/10">
+                  <span>{t.symbol}</span>
+                  <span>{formatBalance(t.balance)}</span>
+                </div>
+              ))
+            ) : (
+              <p className="text-purple-300">No tokens found.</p>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default MonadPortfolioTracker;
